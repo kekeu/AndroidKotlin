@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NyBooks</string>
+    <string name="books">Books</string>
+    <string name="book">Book</string>
+
+    <string name="error_401">Não autorizado</string>
+    <string name="error_not_mapped">Não mapeado</string>
+    <string name="error_network">Sem conexão</string>
+</resources>
