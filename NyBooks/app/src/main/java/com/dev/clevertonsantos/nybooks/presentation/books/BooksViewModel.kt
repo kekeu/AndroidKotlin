@@ -2,7 +2,6 @@ package com.dev.clevertonsantos.nybooks.presentation.books
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.dev.clevertonsantos.nybooks.R
 import com.dev.clevertonsantos.nybooks.data.BooksResult
 import com.dev.clevertonsantos.nybooks.data.model.Book
@@ -29,15 +28,6 @@ class BooksViewModel(val dataSource: BooksRepository) : ViewModel() {
                 }
                 else -> viewFlipperLiveData.value = Pair(VIEW_FLIPPER_ERROR, R.string.error_network)
             }
-        }
-    }
-
-    class ViewModelFactory(val dataSource: BooksRepository) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(BooksViewModel::class.java)) {
-                return BooksViewModel(dataSource) as T
-            }
-            throw IllegalArgumentException("Unknown ViewModel class")
         }
     }
 

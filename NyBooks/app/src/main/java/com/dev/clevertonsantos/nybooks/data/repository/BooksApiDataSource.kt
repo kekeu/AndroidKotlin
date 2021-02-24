@@ -10,7 +10,7 @@ import retrofit2.Response
 
 class BooksApiDataSource : BooksRepository {
 
-    override fun getBooks(booksResultCallBack: (result: BooksResult) -> Unit) {
+    override fun getBooks(booksResultCallback: (result: BooksResult) -> Unit) {
         ApiService.service.listBooks().enqueue(object: Callback<BookBodyResponse> {
             override fun onResponse(
                     call: Call<BookBodyResponse>,
@@ -30,14 +30,14 @@ class BooksApiDataSource : BooksRepository {
                             )
                         }
                     }
-                    booksResultCallBack(BooksResult.Success(books))
+                    booksResultCallback(BooksResult.Success(books))
                 } else {
-                    booksResultCallBack(BooksResult.ApiError(response.code()))
+                    booksResultCallback(BooksResult.ApiError(response.code()))
                 }
             }
 
             override fun onFailure(call: Call<BookBodyResponse>, t: Throwable) {
-                booksResultCallBack(BooksResult.ServerError)
+                booksResultCallback(BooksResult.ServerError)
             }
         })
     }

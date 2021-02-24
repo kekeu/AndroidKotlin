@@ -7,20 +7,20 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.clevertonsantos.nybooks.R
-import com.dev.clevertonsantos.nybooks.data.repository.BooksApiDataSource
 import com.dev.clevertonsantos.nybooks.presentation.base.BaseActivity
 import com.dev.clevertonsantos.nybooks.presentation.details.BookDetailsActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BooksActivity : BaseActivity() {
+
+    val viewModel: BooksViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_books)
 
         val toolbarMain = findViewById<Toolbar>(R.id.toolbarMain)
         setUpToolbar(toolbarMain, R.string.books)
-
-        val viewModel: BooksViewModel = BooksViewModel.ViewModelFactory(BooksApiDataSource())
-                .create(BooksViewModel::class.java)
 
         viewModel.booksLiveData.observe(this, {
             it?.let { books ->

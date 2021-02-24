@@ -50,6 +50,12 @@ dependencies {
     implementation "com.squareup.moshi:moshi:1.11.0"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:1.11.0"
 
+    def koin_version = '2.2.2'
+    // Koin AndroidX Scope features
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    // Koin AndroidX ViewModel features
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
