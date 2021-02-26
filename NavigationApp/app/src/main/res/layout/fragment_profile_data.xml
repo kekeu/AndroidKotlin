@@ -5,51 +5,45 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".ui.login.LoginFragment">
+    android:padding="18dp"
+    tools:context=".ui.registration.profile.ProfileDataFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutLoginUsername"
+        android:id="@+id/inputLayoutProfileDataName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/login_input_layout_hint_username">
+        android:hint="@string/profile_data_input_layout_hint_name">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/inputLoginUsername"
+            android:id="@+id/inputProfileDataName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
+            android:inputType="textCapWords" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutProfileDataBio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:hint="@string/profile_data_input_layout_hint_bio">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/inputProfileDataBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutLoginPassword"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonProfileDataNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:hint="@string/login_input_layout_hint_password">
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/inputLoginPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="@string/login_button_text_sign_in" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login_button_text_sign_up" />
+        android:text="@string/next" />
 
 </LinearLayout>

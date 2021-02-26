@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dev.clevertonsantos.navigationapp.R
 import com.dev.clevertonsantos.navigationapp.ui.login.LoginViewModel
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
@@ -24,6 +24,8 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val profileTextHome = view.findViewById<TextView>(R.id.profileTextHome)
 
         loginViewModel.authenticationStateEvent.observe(viewLifecycleOwner, { authenticationState ->
             when (authenticationState) {

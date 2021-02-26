@@ -23,5 +23,36 @@
         android:id="@+id/loginFragment"
         android:name="com.dev.clevertonsantos.navigationapp.ui.login.LoginFragment"
         android:label="@string/login"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_nav_graph_registration"
+            app:destination="@id/nav_graph_registration" />
+    </fragment>
+
+    <navigation
+        android:id="@+id/nav_graph_registration"
+        app:startDestination="@id/profileDataFragment">
+
+        <fragment
+            android:id="@+id/chooseCredentialsFragment"
+            android:name="com.dev.clevertonsantos.navigationapp.ui.registration.choosecredentials.ChooseCredentialsFragment"
+            android:label="fragment_choose_credentials"
+            tools:layout="@layout/fragment_choose_credentials" >
+
+            <argument
+                android:name="name"
+                app:argType="string"
+                app:nullable="false"/>
+        </fragment>
+        <fragment
+            android:id="@+id/profileDataFragment"
+            android:name="com.dev.clevertonsantos.navigationapp.ui.registration.profile.ProfileDataFragment"
+            android:label="fragment_profile_data"
+            tools:layout="@layout/fragment_profile_data" >
+            <action
+                android:id="@+id/action_profileDataFragment_to_chooseCredentialsFragment"
+                app:destination="@id/chooseCredentialsFragment" />
+        </fragment>
+    </navigation>
+
 </navigation>

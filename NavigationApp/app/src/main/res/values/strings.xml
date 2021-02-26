@@ -2,6 +2,7 @@
     <string name="app_name">NavigationApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">Next</string>
+    <string name="finish">Finish</string>
     <string name="start">Start</string>
     <string name="profile">Profile</string>
 
@@ -16,4 +17,19 @@
     <string name="login_input_layout_error_invalid_username">Invalid username</string>
     <string name="login_input_layout_error_invalid_password">Invalid password</string>
     <string name="login">Login</string>
+
+    <!-- Profile Data -->
+    <string name="profile_data_action_bar_title">Profile Data</string>
+    <string name="profile_data_input_layout_hint_name">Name</string>
+    <string name="profile_data_input_layout_hint_bio">Bio</string>
+    <string name="profile_data_input_layout_error_invalid_name">Invalid name</string>
+    <string name="profile_data_input_layout_error_invalid_bio">Invalid bio</string>
+
+    <!-- Choose Credentials -->
+    <string name="choose_credentials_action_bar_title">Choose Credentials</string>
+    <string name="choose_credentials_input_layout_hint_username">Username</string>
+    <string name="choose_credentials_input_layout_hint_password">Password</string>
+    <string name="choose_credentials_input_layout_error_invalid_username">Invalid username</string>
+    <string name="choose_credentials_input_layout_error_invalid_password">Invalid password</string>
+    <string name="choose_credentials_text_name">%1$s, choose your credentials</string>
 </resources>
