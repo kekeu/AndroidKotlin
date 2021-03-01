@@ -36,7 +36,7 @@
         <fragment
             android:id="@+id/chooseCredentialsFragment"
             android:name="com.dev.clevertonsantos.navigationapp.ui.registration.choosecredentials.ChooseCredentialsFragment"
-            android:label="fragment_choose_credentials"
+            android:label="@string/credenciais"
             tools:layout="@layout/fragment_choose_credentials" >
 
             <argument
@@ -47,7 +47,7 @@
         <fragment
             android:id="@+id/profileDataFragment"
             android:name="com.dev.clevertonsantos.navigationapp.ui.registration.profile.ProfileDataFragment"
-            android:label="fragment_profile_data"
+            android:label="@string/perfil"
             tools:layout="@layout/fragment_profile_data" >
             <action
                 android:id="@+id/action_profileDataFragment_to_chooseCredentialsFragment"

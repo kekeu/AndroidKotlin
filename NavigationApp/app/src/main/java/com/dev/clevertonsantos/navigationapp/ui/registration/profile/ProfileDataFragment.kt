@@ -2,14 +2,18 @@ package com.dev.clevertonsantos.navigationapp.ui.registration.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.addCallback
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dev.clevertonsantos.navigationapp.R
+import com.dev.clevertonsantos.navigationapp.extensions.clearError
 import com.dev.clevertonsantos.navigationapp.ui.registration.RegistrationViewModel
 import com.google.android.material.textfield.TextInputLayout
 
@@ -43,6 +47,16 @@ class ProfileDataFragment : Fragment() {
             val bio = inputProfileDataBio.text.toString()
             registrationViewModel.collectProfileData(name, bio)
         }
+
+        inputProfileDataName.addTextChangedListener {
+            inputLayoutProfileDataName.clearError()
+        }
+
+        inputProfileDataBio.addTextChangedListener {
+            inputLayoutProfileDataBio.clearError()
+        }
+
+        registrationDeviceBackStackCallback()
     }
 
     fun initValidationFields() = mapOf(
@@ -68,5 +82,21 @@ class ProfileDataFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun registrationDeviceBackStackCallback() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            cancelRegistration()
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        cancelRegistration()
+        return true
+    }
+
+    private fun cancelRegistration() {
+        registrationViewModel.userCancelledRegistration()
+        findNavController().popBackStack(R.id.loginFragment, false)
     }
 }
