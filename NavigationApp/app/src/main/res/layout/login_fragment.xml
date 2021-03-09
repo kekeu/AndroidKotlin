@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".ui.login.LoginFragment">
 
@@ -27,6 +26,7 @@
         android:id="@+id/inputLayoutLoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/inputLayoutLoginUsername"
         android:layout_marginTop="18dp"
         android:hint="@string/login_input_layout_hint_password">
 
@@ -39,17 +39,31 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginSignIn"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="@string/login_button_text_sign_in" />
+        android:layout_below="@+id/inputLayoutLoginPassword"
+        android:padding="16dp"
+        android:orientation="horizontal">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login_button_text_sign_up" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonLoginSignIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:textSize="20sp"
+            android:text="@string/login_button_text_sign_in" />
 
-</LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonLoginSignUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:textSize="20sp"
+            android:text="@string/login_button_text_sign_up" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
