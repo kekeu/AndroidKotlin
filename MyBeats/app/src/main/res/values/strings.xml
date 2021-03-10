@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyBeats</string>
+    <string name="meu_beats">Meu Beats</string>
+    <string name="especializa">Especializados em fones para deejay</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="ainda_nao_e_cadastrado">Ainda não é cadastrado?</string>
+    <string name="inscreva_se">Inscreva-se</string>
 </resources>
