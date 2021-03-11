@@ -213,7 +213,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/button_shape"
-            android:text="@string/entrar"
+            android:text="@string/comprar"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"
