@@ -9,9 +9,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.ViewFlipper
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.clevertonsantos.mybeats.R
+import com.dev.clevertonsantos.mybeats.extensions.navigateWithAnim
 
 class HomeFragment : Fragment() {
 
@@ -35,7 +37,7 @@ class HomeFragment : Fragment() {
                             RecyclerView.VERTICAL,false)
                     setHasFixedSize(true)
                     adapter = HomeAdapter(headphones) { book ->
-                        Log.i("Teste", book.description)
+                        findNavController().navigateWithAnim(R.id.action_homeFragment_to_detailsFragment)
                     }
                 }
             }

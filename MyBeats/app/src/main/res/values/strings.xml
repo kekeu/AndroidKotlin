@@ -9,4 +9,13 @@
     <string name="inscreva_se">Inscreva-se</string>
     <string name="adicionar">Adicionar</string>
     <string name="pergunta">\?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="captacao">Captação</string>
+    <string name="altura">altura</string>
+    <string name="autonomia">Autonomia</string>
+    <string name="alimentacao">Alimentação</string>
+    <string name="compatibilidade">Compatibilidade</string>
+    <string name="conexao">Conexão</string>
+    <string name="descricao">Descrição</string>
 </resources>
