@@ -7,4 +7,6 @@
     <string name="entrar">Entrar</string>
     <string name="ainda_nao_e_cadastrado">Ainda não é cadastrado?</string>
     <string name="inscreva_se">Inscreva-se</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="pergunta">\?</string>
 </resources>

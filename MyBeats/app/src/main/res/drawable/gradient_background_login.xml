@@ -49,7 +49,7 @@
         <group
             android:translateX="0.881"
             android:translateY="0.187"
-            android:pivotX="77.5"
+            android:pivotX="187.5"
             android:pivotY="406"
             android:scaleX="1.523"
             android:scaleY="1.523"
