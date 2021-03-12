@@ -17,6 +17,41 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.dev.clevertonsantos.mybeats.ui.details.DetailsFragment"
-        android:label="DetailsFragment" />
+        android:label="DetailsFragment">
+
+        <argument
+            android:name="image"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="connection"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="compatibility"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="charge"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="autonomy"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="height"
+            app:argType="string"
+            app:nullable="false"/>
+        <argument
+            android:name="capture"
+            app:argType="string"
+            app:nullable="false"/>
+
+    </fragment>
 
 </navigation>

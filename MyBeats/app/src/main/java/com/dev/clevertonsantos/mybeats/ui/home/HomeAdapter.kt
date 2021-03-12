@@ -36,9 +36,9 @@ class HomeAdapter(
         private val itemValue = itemView.findViewById<TextView>(R.id.itemValue)
 
         fun bindView(headphone: Headphone) {
-            itemDescription.text = headphone.description
-            itemNote.text = headphone.note
-            itemReviews.text = headphone.reviews
+            itemDescription.text = headphone.name
+            itemNote.text = headphone.rating
+            itemReviews.text = "${headphone.total_reviews} Reviews"
             itemValue.text = headphone.value
 
             itemView.setOnClickListener {

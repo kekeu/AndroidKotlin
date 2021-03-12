@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dev.clevertonsantos.mybeats.data.model.Headphone
 
-class HomeViewModel() : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     val headphonesLiveData: MutableLiveData<List<Headphone>> = MutableLiveData()
     val viewFlipperLiveData: MutableLiveData<Pair<Int, Int?>> = MutableLiveData()
