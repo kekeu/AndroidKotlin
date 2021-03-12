@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.clevertonsantos.mybeats.R
 import com.dev.clevertonsantos.mybeats.data.model.Headphone
+import java.text.DecimalFormat
 
 class HomeAdapter(
         private val headphones: List<Headphone>,
@@ -37,9 +38,10 @@ class HomeAdapter(
 
         fun bindView(headphone: Headphone) {
             itemDescription.text = headphone.name
-            itemNote.text = headphone.rating
+            itemNote.text = headphone.rating.toString()
             itemReviews.text = "${headphone.total_reviews} Reviews"
-            itemValue.text = headphone.value
+            val dec = DecimalFormat("#,###.00")
+            itemValue.text = "R$ ${dec.format(headphone.value)}"
 
             itemView.setOnClickListener {
                 onItemClickerListener.invoke(headphone)
