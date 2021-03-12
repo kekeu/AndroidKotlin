@@ -3,6 +3,7 @@ package com.dev.clevertonsantos.mybeats.ui.details
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -41,6 +42,10 @@ class DetailsFragment : Fragment() {
         textAutonomy.text = args.autonomy
         textHeight.text = args.height
         textCapture.text = args.capture
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return true
     }
 
 }

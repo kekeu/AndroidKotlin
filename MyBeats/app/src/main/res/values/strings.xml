@@ -17,4 +17,5 @@
     <string name="conexao">Conexão</string>
     <string name="descricao">Descrição</string>
     <string name="comprar">Comprar</string>
+    <string name="search">Search</string>
 </resources>
