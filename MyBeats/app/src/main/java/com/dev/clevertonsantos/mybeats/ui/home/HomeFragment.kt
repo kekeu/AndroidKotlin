@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
                     adapter = HomeAdapter(headphones) { headphone ->
                         val valuesDirections = HomeFragmentDirections
                             .actionHomeFragmentToDetailsFragment(height = headphone.height,
-                                name = headphone.name, autonomy = headphone.name,
+                                name = headphone.name, autonomy = headphone.autonomy,
                                 capture = headphone.capture, charge = headphone.charge,
                                 compatibility = headphone.compatibility, image = headphone.image,
                                 connection = headphone.connection)
