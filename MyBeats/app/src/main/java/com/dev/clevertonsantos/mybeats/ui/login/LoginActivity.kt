@@ -44,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel.loginLiveData.observe(this, {
             it?.let {
                 if (it.first) {
+                    finish()
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, it.second, Toast.LENGTH_SHORT).show()
