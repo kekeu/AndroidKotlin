@@ -1,16 +1,16 @@
 package com.dev.clevertonsantos.mybeats.ui.details
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
 import com.dev.clevertonsantos.mybeats.R
+import com.dev.clevertonsantos.mybeats.extensions.load
 
 class DetailsFragment : Fragment() {
 
@@ -34,7 +34,7 @@ class DetailsFragment : Fragment() {
         val textCapture = view.findViewById<TextView>(R.id.detailsCaptureValue)
         val imageView = view.findViewById<ImageView>(R.id.detailsImage)
 
-        context?.let { Glide.with(it).load(args.image).into(imageView) }
+        imageView.load(args.image)
         textName.text = args.name
         textConnection.text = args.connection
         textCompatibility.text = args.compatibility

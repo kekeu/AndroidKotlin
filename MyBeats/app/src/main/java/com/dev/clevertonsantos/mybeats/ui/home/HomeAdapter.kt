@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.dev.clevertonsantos.mybeats.R
 import com.dev.clevertonsantos.mybeats.data.model.Headphone
+import com.dev.clevertonsantos.mybeats.extensions.load
 import java.text.DecimalFormat
 
 class HomeAdapter(
@@ -45,7 +45,7 @@ class HomeAdapter(
             itemReviews.text = "${headphone.total_reviews} Reviews"
             val dec = DecimalFormat("#,###.00")
             itemValue.text = "R$ ${dec.format(headphone.value)}"
-            Glide.with(itemView.context).load(headphone.image).into(imageView)
+            imageView.load(headphone.image)
 
             itemView.setOnClickListener {
                 onItemClickerListener.invoke(headphone)
