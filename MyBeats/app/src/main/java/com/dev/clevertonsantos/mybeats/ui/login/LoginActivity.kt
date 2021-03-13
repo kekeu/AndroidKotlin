@@ -2,7 +2,6 @@ package com.dev.clevertonsantos.mybeats.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -15,11 +14,12 @@ import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity : AppCompatActivity() {
 
-    val viewModel: LoginViewModel = LoginViewModel.ViewModelFactory(HeadphoneApiDataSource())
+    private val viewModel: LoginViewModel = LoginViewModel.ViewModelFactory(HeadphoneApiDataSource())
         .create(LoginViewModel::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
         } else {
@@ -29,22 +29,21 @@ class LoginActivity : AppCompatActivity() {
         actionBar?.hide()
         setContentView(R.layout.activity_login)
 
+        val usuario = findViewById<TextInputEditText>(R.id.editTextUsuario)
+        val senha = findViewById<TextInputEditText>(R.id.editTextSenha)
         val button = findViewById<Button>(R.id.buttonEntrar)
         val text = findViewById<TextView>(R.id.textViewInscrevase)
-        val intent = Intent(this, MainActivity::class.java)
+
+        text.setOnClickListener {}
         button.setOnClickListener {
-            val usuario = findViewById<TextInputEditText>(R.id.editTextUsuario)
-            val senha = findViewById<TextInputEditText>(R.id.editTextSenha)
             viewModel.login(usuario.text.toString(), senha.text.toString())
-        }
-        text.setOnClickListener {
-            Log.i("Teste", "clicou text")
         }
 
         viewModel.loginLiveData.observe(this, {
             it?.let {
                 if (it.first) {
                     finish()
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, it.second, Toast.LENGTH_SHORT).show()

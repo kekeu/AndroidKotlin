@@ -30,7 +30,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val flipper = view.findViewById<ViewFlipper>(R.id.viewFlipper)
+        val textViewError = view.findViewById<TextView>(R.id.error)
         val recyclerBooks = view.findViewById<RecyclerView>(R.id.recyclerHeadphones)
+
         with(recyclerBooks) {
             layoutManager = LinearLayoutManager(activity,
                     RecyclerView.VERTICAL,false)
@@ -45,10 +48,9 @@ class HomeFragment : Fragment() {
         })
         viewModel.viewFlipperLiveData.observe(viewLifecycleOwner, {
             it?.let { viewFlipper ->
-                val flipper = view.findViewById<ViewFlipper>(R.id.viewFlipper)
                 flipper.displayedChild = viewFlipper.first
                 viewFlipper.second?.let { errorMessage ->
-                    view.findViewById<TextView>(R.id.error).text = errorMessage
+                    textViewError.text = errorMessage
                 }
             }
         })
@@ -56,12 +58,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun onItemClicked(headphone: Headphone) {
-        val valuesDirections = HomeFragmentDirections
-                .actionHomeFragmentToDetailsFragment(height = headphone.height,
-                        name = headphone.name, autonomy = headphone.autonomy,
-                        capture = headphone.capture, charge = headphone.charge,
-                        compatibility = headphone.compatibility, image = headphone.image,
-                        connection = headphone.connection)
+        val valuesDirections = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                height = headphone.height, name = headphone.name, autonomy = headphone.autonomy,
+                capture = headphone.capture, charge = headphone.charge, image = headphone.image,
+                connection = headphone.connection, compatibility = headphone.compatibility)
         findNavController().navigate(valuesDirections)
     }
 }
