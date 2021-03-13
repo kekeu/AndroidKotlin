@@ -12,9 +12,10 @@ import com.dev.clevertonsantos.mybeats.extensions.load
 import java.text.DecimalFormat
 
 class HomeAdapter(
-        private val headphones: List<Headphone>,
         private val onItemClickerListener: ((headphone: Headphone) -> Unit)
     ) : RecyclerView.Adapter<HomeAdapter.HeadphonesViewHolder>() {
+
+    private val headphones = mutableListOf<Headphone>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeadphonesViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item,
@@ -24,6 +25,11 @@ class HomeAdapter(
 
     override fun onBindViewHolder(holder: HeadphonesViewHolder, position: Int) {
         holder.bindView(headphones[position])
+    }
+
+    fun addItens(itens: List<Headphone>) {
+        headphones.clear()
+        headphones.addAll(itens)
     }
 
     override fun getItemCount() = headphones.count()
