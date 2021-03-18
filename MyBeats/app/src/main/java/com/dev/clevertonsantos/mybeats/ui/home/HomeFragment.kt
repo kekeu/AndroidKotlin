@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.ViewFlipper
 import androidx.fragment.app.Fragment
@@ -33,6 +34,7 @@ class HomeFragment : Fragment() {
         val flipper = view.findViewById<ViewFlipper>(R.id.viewFlipper)
         val textViewError = view.findViewById<TextView>(R.id.error)
         val recyclerBooks = view.findViewById<RecyclerView>(R.id.recyclerHeadphones)
+        val buttonAdicionar = view.findViewById<Button>(R.id.buttonAdicionar)
 
         with(recyclerBooks) {
             layoutManager = LinearLayoutManager(activity,
@@ -41,6 +43,9 @@ class HomeFragment : Fragment() {
             adapter = homeAdapter
         }
 
+        buttonAdicionar.setOnClickListener {
+            viewModel.getHeadphones()
+        }
         viewModel.headphonesLiveData.observe(viewLifecycleOwner, {
             it?.let { headphones ->
                 homeAdapter.addItens(headphones)

@@ -13,6 +13,7 @@ class HomeViewModel(val dataSource: HeadphoneRepository) : ViewModel() {
     val viewFlipperLiveData: MutableLiveData<Pair<Int, String?>> = MutableLiveData()
 
     fun getHeadphones() {
+        viewFlipperLiveData.value = Pair(VIEW_FLIPPER_LOADING, null)
         dataSource.getHeadphones {
             when (it) {
                 is HeadphoneResult.Success -> {
@@ -27,6 +28,7 @@ class HomeViewModel(val dataSource: HeadphoneRepository) : ViewModel() {
     }
 
     companion object {
+        private const val VIEW_FLIPPER_LOADING = 0
         private const val VIEW_FLIPPER_HEADPHONES = 1
         private const val VIEW_FLIPPER_ERROR = 2
     }
