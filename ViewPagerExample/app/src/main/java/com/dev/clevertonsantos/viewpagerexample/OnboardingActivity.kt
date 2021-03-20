@@ -16,6 +16,7 @@ class OnboardingActivity : AppCompatActivity() {
     private lateinit var onboardingItemAdapter: OnboardingItemAdapter
     private lateinit var indicatorContainer: LinearLayout
     private lateinit var buttonStarted: AppCompatButton
+    private lateinit var onboardingViewPager: ViewPager2
     private val PAGE_INITIAL = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,16 +32,14 @@ class OnboardingActivity : AppCompatActivity() {
     private fun setOnboardingItens() {
         onboardingItemAdapter = OnboardingItemAdapter(
             listOf(
-                OnboardingItem(R.drawable.metrics, "BEM VINDO!",
-                    "Lorem ipsum dolor sit amet.! \nLorem ipsum dolor sit amet."),
-                OnboardingItem(R.drawable.envelope, "COM O X1 PRODUCT VOCÊ PODE:",
-                    ". Lorem ipsum dolor sit amet;\n\n. Lorem ipsum dolor sit amet;" +
-                            "\n\n. Lorem ipsum dolor sit amet!"),
-                OnboardingItem(R.drawable.complete, "E VOCÊ FICA TRANQUILO!",
-                    "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet.!"),
-            )
+                OnboardingItemFragment(R.layout.onboarding_item_0),
+                OnboardingItemFragment(R.layout.onboarding_item_1),
+                OnboardingItemFragment(R.layout.onboarding_item_2)
+            ),
+            this
         )
-        val onboardingViewPager = findViewById<ViewPager2>(R.id.onboardingViewPager)
+
+        onboardingViewPager = findViewById(R.id.onboardingViewPager)
         onboardingViewPager.adapter = onboardingItemAdapter
         onboardingViewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -51,6 +50,7 @@ class OnboardingActivity : AppCompatActivity() {
         })
         (onboardingViewPager.getChildAt(PAGE_INITIAL) as RecyclerView).overScrollMode =
             RecyclerView.OVER_SCROLL_NEVER
+
         buttonStarted = findViewById(R.id.buttonStarted)
         buttonStarted.setOnClickListener {
             if (onboardingViewPager.currentItem + 1 == onboardingItemAdapter.itemCount) {
@@ -103,6 +103,14 @@ class OnboardingActivity : AppCompatActivity() {
     private fun navigateToHome() {
         startActivity(Intent(applicationContext, HomeActivity::class.java))
         finish()
+    }
+
+    override fun onBackPressed() {
+        if (onboardingViewPager.currentItem == PAGE_INITIAL) {
+            super.onBackPressed()
+        } else {
+            onboardingViewPager.currentItem -= 1
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package com.dev.clevertonsantos.mybeats.data.response
 
+import com.dev.clevertonsantos.mybeats.data.model.Headphone
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -28,3 +29,16 @@ data class HeadphoneResponse(
     @Json(name = "Capture")
     val capture: String
 )
+
+fun HeadphoneResponse.convertToHeadphone(): Headphone {
+    return Headphone(name, rating, value, total_reviews, image, connection, compatibility, charge,
+        autonomy, height, capture)
+}
+
+fun List<HeadphoneResponse>.convertToListHeadphone(): List<Headphone> {
+    val valuesReturn: MutableList<Headphone> = mutableListOf()
+    for (item in this) {
+        valuesReturn.add(item.convertToHeadphone())
+    }
+    return valuesReturn
+}
